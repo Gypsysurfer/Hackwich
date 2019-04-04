@@ -11,7 +11,7 @@ import UIKit
 class ViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
     
     @IBOutlet var tableView: UITableView!
-    var myFriends = ["Bryan", "Fred", "Ben"]
+    var myFriends = ["Kapolei Kalapawai"]
     
     var restaurantImageData = [String()]
     
@@ -36,7 +36,8 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
-        
+        tableView.dataSource = self
+        tableView.delegate = self
         let path = Bundle.main.path(forResource: "Property List", ofType:"plist")
         let dict = NSDictionary(contentsOfFile: path!)
         
@@ -57,5 +58,5 @@ class ViewController: UIViewController, UITableViewDataSource, UITableViewDelega
             s1.imagePass = restaurantImageData[imageIndex!]
         }
     }
-}
-
+    
+    }
